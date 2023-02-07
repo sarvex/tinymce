@@ -6,7 +6,7 @@ import * as WordSanitiser from '../util/WordSanitiser';
 
 // Returns: [array of WordScope Struct] containing all words from string allText
 const words = (allText: string): WordScope[] => {
-  const pattern = Pattern.unsafetoken(Pattern.wordchar() + '+');
+  const pattern = Pattern.unsafetoken(Pattern.noPunctuation() + '+');
   const matches = Search.findall(allText, pattern);
   const len = allText.length;
 

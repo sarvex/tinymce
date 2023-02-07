@@ -1,6 +1,6 @@
 import { Fun, Unicode } from '@ephox/katamari';
 
-import { punctuationStr } from '../words/UnicodeData';
+import { noPunctuationStr, punctuationStr } from '../words/UnicodeData';
 
 // \w is a word character
 // "'" is an apostrophe
@@ -20,10 +20,12 @@ const chars = Fun.constant(charsStr);
 const wordbreak = Fun.constant(wordbreakStr);
 const wordchar = Fun.constant(wordcharStr);
 const punctuation = Fun.constant(punctuationStr);
+const noPunctuation = Fun.constant(noPunctuationStr);
 
 export {
   chars,
   punctuation,
+  noPunctuation,
   wordbreak,
   wordchar
 };

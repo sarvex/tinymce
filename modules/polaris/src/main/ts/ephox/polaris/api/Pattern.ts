@@ -35,6 +35,7 @@ const wordchar: WordcharApi = Chars.wordchar;
 
 type PunctuationApi = () => string;
 const punctuation: PunctuationApi = Chars.punctuation;
+const noPunctuation: PunctuationApi = Chars.noPunctuation;
 
 export {
   safeword,
@@ -46,5 +47,6 @@ export {
   chars,
   wordbreak,
   wordchar,
-  punctuation
+  punctuation,
+  noPunctuation
 };
