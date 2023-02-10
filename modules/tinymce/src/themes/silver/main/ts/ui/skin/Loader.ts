@@ -20,7 +20,7 @@ const loadStylesheet = (editor: Editor, stylesheetUrl: string, styleSheetLoader:
   styleSheetLoader.load(stylesheetUrl, resolve, reject);
 
   // Ensure the stylesheet is cleaned up when the editor is destroyed
-  editor.on('remove', () => styleSheetLoader.unload(stylesheetUrl));
+  // editor.on('remove', () => styleSheetLoader.unload(stylesheetUrl));
 });
 
 const loadUiSkins = (editor: Editor, skinUrl: string): Promise<void> => {

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { Merger } from '@ephox/katamari';
+import { Global } from '@ephox/katamari';
 import { SugarElement } from '@ephox/sugar';
 
 import { RawEditorSettings, TinyMCE } from 'tinymce/core/api/PublicApi';
@@ -13,7 +13,7 @@ export default () => {
       icon: 'comment',
       tooltip: 'Tooltip for ' + name,
       onSetup: (api) => {
-        console.log('onSetup ' + name);
+        // console.log('onSetup ' + name);
         const box = SugarElement.fromHtml('<div style="width: ' + width + 'px; background: ' + background + ';"></div>');
         api.element().appendChild(box.dom);
         return () => {
@@ -24,7 +24,7 @@ export default () => {
         console.log('onShow ' + name);
       },
       onHide: (_api) => {
-        console.log('onHide ' + name);
+        // console.log('onHide ' + name);
       }
     });
   };
@@ -108,6 +108,10 @@ export default () => {
     },
     setup: (ed) => {
       makeSidebar(ed, 'sidebar1', 'green', 200);
+      console.time('Init');
+      ed.on('Init', () => {
+        console.timeEnd('Init');
+      });
     },
     plugins: [
       'autosave advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker toc',
@@ -162,6 +166,14 @@ export default () => {
     format_empty_lines: true
   };
 
-  tinymce.init(settings);
-  tinymce.init(Merger.deepMerge(settings, { inline: true, selector: 'div.tinymce' }));
+  // tinymce.init(settings);
+  // tinymce.init(Merger.deepMerge(settings, { inline: true, selector: 'div.tinymce' }));
+
+  const reinit = () => {
+    tinymce.get().forEach((ed) => ed.remove());
+    tinymce.init(settings);
+    // tinymce.init(Merger.deepMerge(settings, { inline: true, selector: 'div.tinymce' }));
+  };
+  reinit();
+  Global.reinit = reinit;
 };
