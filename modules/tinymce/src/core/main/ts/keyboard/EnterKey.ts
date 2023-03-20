@@ -1,3 +1,5 @@
+import { PlatformDetection } from '@ephox/sand';
+
 import Editor from '../api/Editor';
 import { EditorEvent } from '../api/util/EventDispatcher';
 import VK from '../api/util/VK';
@@ -17,16 +19,22 @@ const handleEnterKeyEvent = (editor: Editor, event: EditorEvent<KeyboardEvent>) 
   });
 };
 
+const isSafari = PlatformDetection.detect().browser.isSafari();
+
 const setup = (editor: Editor): void => {
   editor.on('keydown', (event: EditorEvent<KeyboardEvent>) => {
     if (event.keyCode === VK.ENTER) {
-      editor.undoManager.beforeChange();
-      editor.undoManager.add();
+      if (isSafari) {
+        editor.undoManager.beforeChange();
+        editor.undoManager.add();
+      } else {
+        handleEnterKeyEvent(editor, event);
+      }
     }
   });
 
   editor.on('keyup', (event: EditorEvent<KeyboardEvent>) => {
-    if (event.keyCode === VK.ENTER) {
+    if (isSafari && event.keyCode === VK.ENTER) {
       editor.undoManager.undo();
       handleEnterKeyEvent(editor, event);
     }
