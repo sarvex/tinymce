@@ -1,7 +1,7 @@
-import { ApproxStructure, Keys, StructAssert } from '@ephox/agar';
+import { ApproxStructure, RealKeys, StructAssert } from '@ephox/agar';
 import { describe, it } from '@ephox/bedrock-client';
 import { PlatformDetection } from '@ephox/sand';
-import { TinyAssertions, TinyContentActions, TinyHooks, TinySelections } from '@ephox/wrap-mcagar';
+import { TinyAssertions, TinyHooks, TinySelections } from '@ephox/wrap-mcagar';
 
 import Editor from 'tinymce/core/api/Editor';
 import * as Zwsp from 'tinymce/core/text/Zwsp';
@@ -16,7 +16,9 @@ describe('browser.tinymce.core.keyboard.EnterKeyAnchorTest', () => {
     TinySelections.setCursor(editor, elementPath, offset);
   };
 
-  const enterKey = (editor: Editor) => TinyContentActions.keystroke(editor, Keys.enter());
+  const enterKey = async () => {
+    await RealKeys.pSendKeysOn('iframe => body', [ RealKeys.text('Enter') ]);
+  };
 
   const addGeckoBr = (s: ApproxStructure.StructApi, str: ApproxStructure.StringApi, children: StructAssert[]) => {
     if (PlatformDetection.detect().browser.isFirefox()) {
@@ -26,10 +28,10 @@ describe('browser.tinymce.core.keyboard.EnterKeyAnchorTest', () => {
     }
   };
 
-  it('Enter at start of anchor zwsp', () => {
+  it('Enter at start of anchor zwsp', async () => {
     const editor = hook.editor();
     setup(editor, '<p><a href="#">' + Zwsp.ZWSP + 'a</a></p>', [ 0, 0, 0 ], 1);
-    enterKey(editor);
+    await enterKey();
     TinyAssertions.assertContentStructure(editor,
       ApproxStructure.build((s, str, _arr) => {
         return s.element('body', {
@@ -63,10 +65,10 @@ describe('browser.tinymce.core.keyboard.EnterKeyAnchorTest', () => {
     TinyAssertions.assertSelection(editor, [ 1, 0, 0 ], 1, [ 1, 0, 0 ], 1);
   });
 
-  it('Enter at end of anchor zwsp', () => {
+  it('Enter at end of anchor zwsp', async () => {
     const editor = hook.editor();
     setup(editor, '<p><a href="#">a' + Zwsp.ZWSP + '</a></p>', [ 0, 0, 0 ], 2);
-    enterKey(editor);
+    await enterKey();
     TinyAssertions.assertContentStructure(editor,
       ApproxStructure.build((s, str, _arr) => {
         return s.element('body', {
@@ -100,10 +102,10 @@ describe('browser.tinymce.core.keyboard.EnterKeyAnchorTest', () => {
     TinyAssertions.assertSelection(editor, [ 1 ], 0, [ 1 ], 0);
   });
 
-  it('Enter at start of anchor zwsp with adjacent content', () => {
+  it('Enter at start of anchor zwsp with adjacent content', async () => {
     const editor = hook.editor();
     setup(editor, '<p>a<a href="#">' + Zwsp.ZWSP + 'b</a>c</p>', [ 0, 1, 0 ], 1);
-    enterKey(editor);
+    await enterKey();
     TinyAssertions.assertContentStructure(editor,
       ApproxStructure.build((s, str, _arr) => {
         return s.element('body', {
@@ -140,10 +142,10 @@ describe('browser.tinymce.core.keyboard.EnterKeyAnchorTest', () => {
     TinyAssertions.assertSelection(editor, [ 1, 0, 0 ], 1, [ 1, 0, 0 ], 1);
   });
 
-  it('Enter at end of anchor zwsp with adjacent content', () => {
+  it('Enter at end of anchor zwsp with adjacent content', async () => {
     const editor = hook.editor();
     setup(editor, '<p>a<a href="#">b' + Zwsp.ZWSP + '</a>c</p>', [ 0, 1, 0 ], 1);
-    enterKey(editor);
+    await enterKey();
     TinyAssertions.assertContentStructure(editor,
       ApproxStructure.build((s, str, _arr) => {
         return s.element('body', {

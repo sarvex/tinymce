@@ -1,4 +1,4 @@
-import { Keys } from '@ephox/agar';
+import { RealKeys } from '@ephox/agar';
 import { context, describe, it } from '@ephox/bedrock-client';
 import { Type, Unicode } from '@ephox/katamari';
 import { TinyAssertions, TinyContentActions, TinyHooks, TinySelections, TinyUiActions } from '@ephox/wrap-mcagar';
@@ -381,11 +381,11 @@ describe('browser.tinymce.core.fmt.FormatEmptyLineTest', () => {
       TinyAssertions.assertRawContent(editor, '<p><strong>a</strong></p><p>&nbsp;</p>');
     });
 
-    it('TINY-8639: should serialize caret formatted empty line if the cursor has not moved', () => {
+    it('TINY-8639: should serialize caret formatted empty line if the cursor has not moved', async () => {
       const editor = hook.editor();
       editor.setContent('<p>a</p>');
       TinySelections.setCursor(editor, [ 0, 0 ], 1);
-      TinyContentActions.keystroke(editor, Keys.enter());
+      await RealKeys.pSendKeysOn('iframe => body', [ RealKeys.text('Enter') ]);
       toggleInlineStyle('Bold')(editor);
       TinyAssertions.assertRawContent(
         editor,

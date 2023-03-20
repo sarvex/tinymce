@@ -22,10 +22,11 @@ const handleEnterKeyEvent = (editor: Editor, event: EditorEvent<KeyboardEvent>) 
 const isSafari = PlatformDetection.detect().browser.isSafari();
 
 const setup = (editor: Editor): void => {
+  let bookmark = editor.selection.getBookmark();
   editor.on('keydown', (event: EditorEvent<KeyboardEvent>) => {
     if (event.keyCode === VK.ENTER) {
       if (isSafari) {
-        editor.undoManager.beforeChange();
+        bookmark = editor.selection.getBookmark();
         editor.undoManager.add();
       } else {
         handleEnterKeyEvent(editor, event);
@@ -36,6 +37,7 @@ const setup = (editor: Editor): void => {
   editor.on('keyup', (event: EditorEvent<KeyboardEvent>) => {
     if (isSafari && event.keyCode === VK.ENTER) {
       editor.undoManager.undo();
+      editor.selection.moveToBookmark(bookmark);
       handleEnterKeyEvent(editor, event);
     }
   });
