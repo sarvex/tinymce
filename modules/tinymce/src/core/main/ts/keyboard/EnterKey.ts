@@ -1,8 +1,11 @@
+import { Fun, Optional } from '@ephox/katamari';
 import { PlatformDetection } from '@ephox/sand';
 
 import Editor from '../api/Editor';
 import { EditorEvent } from '../api/util/EventDispatcher';
 import VK from '../api/util/VK';
+import { Bookmark } from '../bookmark/BookmarkTypes';
+import { getBookmark } from '../bookmark/GetBookmark';
 import * as NodeType from '../dom/NodeType';
 import * as InsertNewLine from '../newline/InsertNewLine';
 import { endTypingLevelIgnoreLocks } from '../undo/TypingState';
@@ -23,7 +26,7 @@ const handleEnterKeyEvent = (editor: Editor, event: EditorEvent<KeyboardEvent>) 
 const isSafari = PlatformDetection.detect().browser.isSafari();
 
 const setup = (editor: Editor): void => {
-  let bookmark = editor.selection.getBookmark();
+  let bookmark: Optional<Bookmark> = Optional.none();
   let shouldOverride = false;
 
   editor.on('keydown', (event: EditorEvent<KeyboardEvent>) => {
@@ -31,7 +34,7 @@ const setup = (editor: Editor): void => {
       const rng = editor.selection.getRng();
       shouldOverride = isSafari && rng.collapsed && NodeType.isText(rng.commonAncestorContainer);
       if (shouldOverride) {
-        bookmark = editor.selection.getBookmark();
+        bookmark = Optional.some(getBookmark(editor.selection, 3));
         editor.undoManager.add();
       } else {
         handleEnterKeyEvent(editor, event);
@@ -42,9 +45,11 @@ const setup = (editor: Editor): void => {
   editor.on('keyup', (event: EditorEvent<KeyboardEvent>) => {
     if (event.keyCode === VK.ENTER && shouldOverride) {
       editor.undoManager.undo();
-      editor.selection.moveToBookmark(bookmark);
+      bookmark.fold(Fun.noop, (b) => editor.selection.moveToBookmark(b));
       handleEnterKeyEvent(editor, event);
+
       shouldOverride = false;
+      bookmark = Optional.none();
     }
   });
 };
