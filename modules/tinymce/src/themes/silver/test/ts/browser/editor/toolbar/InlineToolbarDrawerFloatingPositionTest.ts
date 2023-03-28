@@ -67,7 +67,7 @@ describe('browser.tinymce.themes.silver.editor.toolbar.InlineToolbarDrawerFloati
     });
   }));
 
-  it.only('TINY-4725: Test toolbar bottom positioning', () => pWithEditor({ toolbar_location: 'bottom' }, async (editor) => {
+  it('TINY-4725: Test toolbar bottom positioning', () => pWithEditor({ toolbar_location: 'bottom' }, async (editor) => {
     const initialContainerTop = Cell(getUiContainerTop(editor));
     const getExpectedToolbarPos = () => initialContainerTop.get() - toolbarHeight * 2; // top of ui container - two toolbar heights
 
