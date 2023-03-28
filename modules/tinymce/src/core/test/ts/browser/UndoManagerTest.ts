@@ -1,4 +1,4 @@
-import { Keys } from '@ephox/agar';
+import { Keys, RealKeys } from '@ephox/agar';
 import { beforeEach, context, describe, it } from '@ephox/bedrock-client';
 import { Arr, Fun } from '@ephox/katamari';
 import { PlatformDetection } from '@ephox/sand';
@@ -91,7 +91,7 @@ describe('browser.tinymce.core.UndoManagerTest', () => {
     assert.isFalse(editor.undoManager.typing);
   });
 
-  it('Typing state', () => {
+  it('Typing state', async () => {
     const editor = hook.editor();
     editor.undoManager.clear();
     editor.setContent('test');
@@ -101,7 +101,7 @@ describe('browser.tinymce.core.UndoManagerTest', () => {
     editor.dom.dispatch(editor.getBody(), 'keydown', { keyCode: 65 });
     assert.isTrue(editor.undoManager.typing);
 
-    editor.dom.dispatch(editor.getBody(), 'keydown', { keyCode: 13 });
+    await RealKeys.pSendKeysOn('iframe => body', [ RealKeys.text('Enter') ]);
     assert.isFalse(editor.undoManager.typing);
 
     const selectAllFlags: Record<string, any> = { keyCode: 65, ctrlKey: false, altKey: false, shiftKey: false };

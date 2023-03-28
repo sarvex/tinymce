@@ -5,7 +5,6 @@ import Editor from '../api/Editor';
 import { EditorEvent } from '../api/util/EventDispatcher';
 import VK from '../api/util/VK';
 import { Bookmark } from '../bookmark/BookmarkTypes';
-import { getBookmark } from '../bookmark/GetBookmark';
 import * as NodeType from '../dom/NodeType';
 import * as InsertNewLine from '../newline/InsertNewLine';
 import { endTypingLevelIgnoreLocks } from '../undo/TypingState';
@@ -34,7 +33,7 @@ const setup = (editor: Editor): void => {
       const rng = editor.selection.getRng();
       shouldOverride = isSafari && rng.collapsed && NodeType.isText(rng.commonAncestorContainer);
       if (shouldOverride) {
-        bookmark = Optional.some(getBookmark(editor.selection, 3));
+        bookmark = Optional.some(editor.selection.getBookmark());
         editor.undoManager.add();
       } else {
         handleEnterKeyEvent(editor, event);
