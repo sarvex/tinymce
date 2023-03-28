@@ -1,4 +1,4 @@
-import { Keys, UiFinder, Waiter } from '@ephox/agar';
+import { Keys, RealKeys, UiFinder, Waiter } from '@ephox/agar';
 import { describe, it } from '@ephox/bedrock-client';
 import { Arr, Cell } from '@ephox/katamari';
 import { Css, SugarBody, SugarLocation } from '@ephox/sugar';
@@ -24,6 +24,14 @@ describe('browser.tinymce.themes.silver.editor.toolbar.InlineToolbarDrawerFloati
     Arr.range(times, () => {
       TinyContentActions.keydown(editor, Keys.enter());
     });
+  };
+
+  const pressRealEnterNTimes = async (editor: Editor, times: number) => {
+    editor.focus();
+    for (let i = 0; i < times; i++) {
+      await RealKeys.pSendKeysOn('div.mce-content-body', [ RealKeys.text('Enter') ]);
+
+    }
   };
 
   const pWithEditor = async (options: RawEditorOptions, pRunTests: (editor: Editor) => Promise<void>) => {
@@ -59,14 +67,14 @@ describe('browser.tinymce.themes.silver.editor.toolbar.InlineToolbarDrawerFloati
     });
   }));
 
-  it('TINY-4725: Test toolbar bottom positioning', () => pWithEditor({ toolbar_location: 'bottom' }, async (editor) => {
+  it.only('TINY-4725: Test toolbar bottom positioning', () => pWithEditor({ toolbar_location: 'bottom' }, async (editor) => {
     const initialContainerTop = Cell(getUiContainerTop(editor));
     const getExpectedToolbarPos = () => initialContainerTop.get() - toolbarHeight * 2; // top of ui container - two toolbar heights
 
     await pOpenFloatingToolbarAndAssertPosition(editor, getExpectedToolbarPos);
     await pOpenFloatingToolbarAndAssertPosition(editor, getExpectedToolbarPos, async () => {
       // Press enter a few times to change the height of the editor
-      pressEnterNTimes(editor, 3);
+      pressRealEnterNTimes(editor, 3);
       await Waiter.pTryUntil('Wait for toolbar to move', () => {
         assert.isAtLeast(getUiContainerTop(editor), initialContainerTop.get() + lineHeight * 3, 'Toolbar top position'); // Wait for the toolbar to move three lines
       });
