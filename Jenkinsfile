@@ -21,7 +21,7 @@ node("headless-macos") {
     }
 
     stage("Bump lerna versions to preminor") {
-      exec("yarn lerna version preminor --no-git-tag-version --yes")
+      exec("yarn lerna version preminor --yes")
     }
 
     dir("modules/polaris") {
