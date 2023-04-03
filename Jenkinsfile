@@ -20,20 +20,18 @@ node("headless-macos") {
       }
     }
 
-    stage("Go to polaris directory") {
-      exec("cd modules/polaris")
-    }
+    dir("modules/polaris") {
+      stage("Bump lerna versions to preminor") {
+        exec("yarn lerna version preminor --no-git-tag-version --yes")
+      }
 
-    stage("Bump lerna versions to preminor") {
-      exec("yarn lerna version preminor --no-git-tag-version --yes")
-    }
+      stage("Publish to npm with rc tag") {
+        exec("npm publish --tag rc-6.1")
+      }
 
-    stage("Publish to npm with rc tag") {
-      exec("npm publish --tag rc-6.1")
-    }
-
-    stage("Undo lerna changes") {
-      exec("git reset --hard")
+      stage("Undo lerna changes") {
+        exec("git reset --hard")
+      }
     }
   }
 }
