@@ -21,7 +21,7 @@
   "dependencies": {
     "@ephox/boss": "^6.0.9",
     "@ephox/katamari": "^9.1.5",
-    "@ephox/polaris": "6.1.0-alpha.0",
+    "@ephox/polaris": "^6.1.0-alpha.0",
     "@ephox/sugar": "^9.2.1"
   },
   "devDependencies": {
