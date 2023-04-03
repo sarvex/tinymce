@@ -21,13 +21,13 @@ node("headless-macos") {
     }
 
     stage("Bump lerna versions to preminor") {
-      sh "yarn lerna version preminor --yes"
+      sh "yarn lerna version preminor --no-git-tag-version --yes"
     }
 
     dir("modules/polaris") {
       stage("Publish to npm with rc tag") {
         sshagent(credentials: ['jenkins2-github']) {
-          sh "yarn lerna publish from-package --yes --dist-tag rc"
+          sh "npm publish --tag rc"
         }
       }
     }
