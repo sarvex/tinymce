@@ -21,7 +21,7 @@
   "dependencies": {
     "@ephox/boss": "^6.0.9",
     "@ephox/katamari": "^9.1.5",
-    "@ephox/polaris": "^6.0.9",
+    "@ephox/polaris": "6.1.0-alpha.0",
     "@ephox/sugar": "^9.2.1"
   },
   "devDependencies": {
@@ -29,8 +29,7 @@
   },
   "scripts": {
     "test-manual": "bedrock -d src/test",
-    "lint": "eslint --config ../../.eslintrc.json src/**/*.ts",
-    "prepublishOnly": "tsc -b"
+    "lint": "eslint --config ../../.eslintrc.json src/**/*.ts"
   },
   "author": "Ephox Corporation DBA Tiny Technologies, Inc",
   "license": "MIT",

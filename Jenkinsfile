@@ -24,7 +24,7 @@ node("aws-tools") {
       exec("yarn lerna version preminor --no-git-tag-version --yes")
     }
 
-    dir("modules/robin") {
+    dir("modules/phoenix") {
       stage("Prepublish") {
         exec("yarn tsc -b")
       }
