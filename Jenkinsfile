@@ -9,7 +9,7 @@ node("headless-macos") {
 
     def cleanAndInstall = {
       echo "Installing tools"
-      exec("git clean -fdx modules scratch js dist")
+      sh "git clean -fdx modules scratch js dist"
       yarnInstall()
     }
 
@@ -21,19 +21,19 @@ node("headless-macos") {
     }
 
     stage("Bump lerna versions to preminor") {
-      exec("yarn lerna version preminor --yes")
+      sh "yarn lerna version preminor --yes"
     }
 
     dir("modules/polaris") {
       stage("Publish to npm with rc tag") {
         sshagent(credentials: ['jenkins2-github']) {
-          exec("yarn lerna publish from-package --yes --dist-tag rc")
+          sh "yarn lerna publish from-package --yes --dist-tag rc"
         }
       }
     }
 
     stage("Undo lerna changes") {
-      exec("git reset --hard")
+      sh "git reset --hard"
     }
   }
 }
