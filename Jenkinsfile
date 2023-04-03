@@ -26,7 +26,9 @@ node("headless-macos") {
 
     dir("modules/polaris") {
       stage("Publish to npm with rc tag") {
-        exec("npm publish --tag rc-6.1")
+        sshagent(credentials: ['jenkins2-github']) {
+          exec("yarn lerna publish from-package --yes --dist-tag rc")
+        }
       }
     }
 
