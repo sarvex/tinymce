@@ -21,13 +21,13 @@ node("aws-tools") {
     }
 
     stage("Bump lerna versions to preminor") {
-      sh "yarn lerna version preminor --no-git-tag-version --yes"
+      sh "yarn lerna version preminor --yes"
     }
 
     dir("modules/polaris") {
       stage("Publish to npm with rc tag") {
         sshagent(credentials: ['jenkins2-github']) {
-          sh "npm publish --tag rc"
+          sh "yarn lerna publish from-package --yes --dist-tag=rc"
         }
       }
     }
