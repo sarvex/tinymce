@@ -3,7 +3,7 @@
 
 standardProperties()
 
-node("headless-macos") {
+node("aws-tools") {
   timestamps {
     checkout scm
 
