@@ -9,7 +9,7 @@ node("aws-tools") {
 
     def cleanAndInstall = {
       echo "Installing tools"
-      sh "git clean -fdx modules scratch js dist"
+      exec("git clean -fdx modules scratch js dist")
       yarnInstall()
     }
 
@@ -20,24 +20,24 @@ node("aws-tools") {
       }
     }
 
-    stage("Build") {
-      sh "yarn build"
-    }
-
     stage("Bump lerna versions to preminor") {
-      sh "yarn lerna version preminor --no-git-tag-version --yes"
+      exec("yarn lerna version preminor --no-git-tag-version --yes")
     }
 
     dir("modules/polaris") {
+      stage("Prepublish") {
+        exec("yarn tsc -b")
+      }
+
       stage("Publish to npm with rc tag") {
         sshagent(credentials: ['jenkins2-github']) {
-          sh "npm publish --tag=rc"
+          exec("npm publish --tag=rc")
         }
       }
     }
 
     stage("Undo lerna changes") {
-      sh "git reset --hard"
+      exec("git reset --hard")
     }
   }
 }
