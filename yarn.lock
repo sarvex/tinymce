@@ -280,6 +280,34 @@
     tslib "^2.3.1"
     vinyl "^2.2.0"
 
+"@ephox/phoenix@^8.0.9", "@ephox/phoenix@^8.2.1":
+  version "8.2.1"
+  resolved "https://registry.yarnpkg.com/@ephox/phoenix/-/phoenix-8.2.1.tgz#82dfb043b3db2776eeb938917731a97d309bb171"
+  integrity sha512-KtTtFnlaAzvZkEEoj1M5shORHT1SFDxvTxMpaqiG7IMynEF3RCha+uiMUUuLEq1lb3ce+cElfPTL7gLG1F/frw==
+  dependencies:
+    "@ephox/boss" "^6.0.9"
+    "@ephox/katamari" "^9.1.5"
+    "@ephox/polaris" "^6.2.1"
+    "@ephox/sugar" "^9.2.1"
+
+"@ephox/polaris@^6.2.1":
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/@ephox/polaris/-/polaris-6.2.1.tgz#288e6465165d1b7c1b78622aeb29953c8b738edf"
+  integrity sha512-F8E5zt4GKXSOYmJ5FHHPrO6h2FtqQgbKSx0YeXMeGwefNfk2aAtKi06eWu83yHtiXhAL9m4/wLUvlmjX9feSJw==
+  dependencies:
+    "@ephox/katamari" "^9.1.5"
+
+"@ephox/robin@^10.0.9":
+  version "10.2.1"
+  resolved "https://registry.yarnpkg.com/@ephox/robin/-/robin-10.2.1.tgz#f43bc56f04d6451e9fd01d4c369b3553dad91667"
+  integrity sha512-PegI34QLNajIkW25B1acMRlyPEp0177tqjQBcyNblN/96bCQkO5WDVS7q5kyjBODhzs2tnhtXUAJVDyy0K2lHQ==
+  dependencies:
+    "@ephox/boss" "^6.0.9"
+    "@ephox/katamari" "^9.1.5"
+    "@ephox/phoenix" "^8.2.1"
+    "@ephox/polaris" "^6.2.1"
+    "@ephox/sugar" "^9.2.1"
+
 "@ephox/swag@^4.6.0":
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/@ephox/swag/-/swag-4.6.0.tgz#5d2efde8cfc943f1582d08a7cc634f892a7af5a4"
@@ -12072,9 +12100,9 @@ windows-release@^3.1.0:
     execa "^1.0.0"
 
 word-wrap@^1.2.3, word-wrap@~1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
-  integrity sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.4.tgz#cb4b50ec9aca570abd1f52f33cd45b6c61739a9f"
+  integrity sha512-2V81OA4ugVo5pRo46hAoD2ivUJx8jXmWXfUkY4KFNw0hEptvN0QfH3K4nHiwzGeKl5rFKedV48QVoqYavy4YpA==
 
 wordwrap@^1.0.0:
   version "1.0.0"
