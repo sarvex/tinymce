@@ -280,6 +280,34 @@
     tslib "^2.3.1"
     vinyl "^2.2.0"
 
+"@ephox/phoenix@^8.0.9", "@ephox/phoenix@^8.3.0":
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/@ephox/phoenix/-/phoenix-8.3.0.tgz#2e90426e5f42295a95999fa487e1a8c0d6c58b44"
+  integrity sha512-l87ZoptxPRLWSfXw1usvz6KhxAe1LNCCbOgbxvMh9MU1LQR6DrJh84VsC48dHgeauPcL2a0m7djmclG1NiqPOQ==
+  dependencies:
+    "@ephox/boss" "^6.0.9"
+    "@ephox/katamari" "^9.1.5"
+    "@ephox/polaris" "^6.3.0"
+    "@ephox/sugar" "^9.2.1"
+
+"@ephox/polaris@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@ephox/polaris/-/polaris-6.3.0.tgz#58031d289e426cbcb35c8885290d857de44615c5"
+  integrity sha512-3AbecxdqPS3mjuhKM2ppSOQsEu0B0bdI1zbzZZVulC2XFEcD9aOPYHzMa3hFoyxQRm6Ex9XJNpyaO4dn480VpA==
+  dependencies:
+    "@ephox/katamari" "^9.1.5"
+
+"@ephox/robin@^10.0.9":
+  version "10.3.0"
+  resolved "https://registry.yarnpkg.com/@ephox/robin/-/robin-10.3.0.tgz#6b84cd68f068e792441fd5efe07f5e45be9c818f"
+  integrity sha512-gRpU3j+a4CwL8TvrJN+5mCtME/3i+tXNieSZIKVbjqAmzoeajvr72nxGAR4ySug/N+JIoxsQTRg5Y/+Pt9XXiQ==
+  dependencies:
+    "@ephox/boss" "^6.0.9"
+    "@ephox/katamari" "^9.1.5"
+    "@ephox/phoenix" "^8.3.0"
+    "@ephox/polaris" "^6.3.0"
+    "@ephox/sugar" "^9.2.1"
+
 "@ephox/swag@^4.6.0":
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/@ephox/swag/-/swag-4.6.0.tgz#5d2efde8cfc943f1582d08a7cc634f892a7af5a4"
@@ -5403,9 +5431,9 @@ get-caller-file@^2.0.1, get-caller-file@^2.0.5:
   integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
 
 get-func-name@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/get-func-name/-/get-func-name-2.0.0.tgz#ead774abee72e20409433a066366023dd6887a41"
-  integrity sha512-Hm0ixYtaSZ/V7C8FJrtZIuBBI+iSgL+1Aq82zSu8VQNB4S3Gk8e7Qs3VwBDJAhmRZcFqkl3tQu36g/Foh5I5ig==
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/get-func-name/-/get-func-name-2.0.2.tgz#0d7cf20cd13fda808669ffa88f4ffc7a3943fc41"
+  integrity sha512-8vXOvuE167CtIc3OyItco7N/dpRtBbYOsPsXCz7X/PMnlGjYjSGuZJgM1Y7mmew7BKf9BqvLX2tnOVy1BBUsxQ==
 
 get-intrinsic@^1.0.2, get-intrinsic@^1.1.0, get-intrinsic@^1.1.1, get-intrinsic@^1.1.2:
   version "1.1.3"
