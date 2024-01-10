@@ -259,6 +259,14 @@
     which "^2.0.0"
     xml-writer "^1.6.0"
 
+"@ephox/boss@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@ephox/boss/-/boss-6.1.0.tgz#f21f38c60eec8fd22a91161ab86c61a0c3ac5d69"
+  integrity sha512-O8NOGaLHA//uOjdYBNqHVy9J6Opx8yV/LetVjy/sVxh33w9i1ObojxLVY6Lm0tZhW5Hm/TLdaDJLBg0nHfXF+g==
+  dependencies:
+    "@ephox/katamari" "^9.1.5"
+    "@ephox/sugar" "^9.3.0"
+
 "@ephox/dispute@^1.0.3":
   version "1.0.14"
   resolved "https://registry.yarnpkg.com/@ephox/dispute/-/dispute-1.0.14.tgz#f7a81ec5cfb63561a29711118bc4a3e42f7046df"
@@ -279,6 +287,42 @@
     svgo "^2.4.0"
     tslib "^2.3.1"
     vinyl "^2.2.0"
+
+"@ephox/phoenix@^8.0.9", "@ephox/phoenix@^8.4.0":
+  version "8.4.0"
+  resolved "https://registry.yarnpkg.com/@ephox/phoenix/-/phoenix-8.4.0.tgz#b6b921749a94aa840a84336fdb07f0ea5df03fd5"
+  integrity sha512-IqXo0/e+mVdISyQSd0yCg8Cf9rCG4N0OsNYWTATDqt65P8HcXpA9cyQB/sN+gUh61Ax4rJNb1VqENoKjyND99w==
+  dependencies:
+    "@ephox/boss" "^6.1.0"
+    "@ephox/katamari" "^9.1.5"
+    "@ephox/polaris" "^6.3.0"
+    "@ephox/sugar" "^9.3.0"
+
+"@ephox/polaris@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@ephox/polaris/-/polaris-6.3.0.tgz#58031d289e426cbcb35c8885290d857de44615c5"
+  integrity sha512-3AbecxdqPS3mjuhKM2ppSOQsEu0B0bdI1zbzZZVulC2XFEcD9aOPYHzMa3hFoyxQRm6Ex9XJNpyaO4dn480VpA==
+  dependencies:
+    "@ephox/katamari" "^9.1.5"
+
+"@ephox/robin@^10.0.9":
+  version "10.4.0"
+  resolved "https://registry.yarnpkg.com/@ephox/robin/-/robin-10.4.0.tgz#cdda78eaa9090bb13979ae2730e4826e3375055c"
+  integrity sha512-sYBP4JG99QzRmHTw8cDRglDLsSKarF5DuTcEKzEO8qmpz/5pYHk6omJSfVNhk6R0RI+B0oXH655FA+WGlGPpbw==
+  dependencies:
+    "@ephox/boss" "^6.1.0"
+    "@ephox/katamari" "^9.1.5"
+    "@ephox/phoenix" "^8.4.0"
+    "@ephox/polaris" "^6.3.0"
+    "@ephox/sugar" "^9.3.0"
+
+"@ephox/sugar@^9.3.0":
+  version "9.3.0"
+  resolved "https://registry.yarnpkg.com/@ephox/sugar/-/sugar-9.3.0.tgz#5bb4c994ef4778621a528a58cc129e30ece23284"
+  integrity sha512-KS9XKXRnguxS9s+DaVXmfmkza4l94gcjZITMQ7GwQlDJ0fOCJb4Fmq8g6QW7YkSVlQdXj3qRM7VMLtwv+HeL2w==
+  dependencies:
+    "@ephox/katamari" "^9.1.5"
+    "@ephox/sand" "^6.0.9"
 
 "@ephox/swag@^4.6.0":
   version "4.6.0"
@@ -5154,9 +5198,9 @@ flush-write-stream@^1.0.0, flush-write-stream@^1.0.2:
     readable-stream "^2.3.6"
 
 follow-redirects@^1.0.0:
-  version "1.15.2"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.2.tgz#b460864144ba63f2681096f274c4e57026da2c13"
-  integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
+  version "1.15.4"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.4.tgz#cdc7d308bf6493126b17ea2191ea0ccf3e535adf"
+  integrity sha512-Cr4D/5wlrb0z9dgERpUL3LrmPKVDsETIJhaCMeDfuFYcqa5bldGV6wBsAN6X/vxlXQtFBMrXdXxdL8CbDTGniw==
 
 for-in@^1.0.1, for-in@^1.0.2:
   version "1.0.2"
