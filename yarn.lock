@@ -259,12 +259,27 @@
     which "^2.0.0"
     xml-writer "^1.6.0"
 
+"@ephox/boss@^6.1.1":
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/@ephox/boss/-/boss-6.1.1.tgz#f2b84c2d6f4b476850b1c213499f2d7bf079041c"
+  integrity sha512-7td5QCeRwkiMBAgHeoGxz8XL4+kSZd21yl99h4cshLdsjOM1CSNbTqbCJ+yjkku46wUjlRGtxE7yReGN3gMQ/g==
+  dependencies:
+    "@ephox/katamari" "^9.1.6"
+    "@ephox/sugar" "^9.3.1"
+
 "@ephox/dispute@^1.0.3":
   version "1.0.14"
   resolved "https://registry.yarnpkg.com/@ephox/dispute/-/dispute-1.0.14.tgz#f7a81ec5cfb63561a29711118bc4a3e42f7046df"
   integrity sha512-cl8hu6u8FDIJ0Ofmp9PzMWuby7mNXylcbr5yrsQ7MMOVKXTTBKj93ZWGmPFqKBTbWdeMji16fVRLxYqCp7FInA==
   dependencies:
     tslib "^2.0.0"
+
+"@ephox/katamari@^9.1.6":
+  version "9.1.6"
+  resolved "https://registry.yarnpkg.com/@ephox/katamari/-/katamari-9.1.6.tgz#a7b6e6bfa4c4ab3f0569ab06298c432c5ef0227f"
+  integrity sha512-7R7hcpiIWaDk4t731ppdr3X/hjLZkHTDjJCEgGgTS3ylddodGKtSMS91tISicYjKQXnB06GT+gJoOk3/McazIg==
+  dependencies:
+    "@ephox/dispute" "^1.0.3"
 
 "@ephox/oxide-icons-tools@^3.1.0":
   version "3.1.0"
@@ -279,6 +294,49 @@
     svgo "^2.4.0"
     tslib "^2.3.1"
     vinyl "^2.2.0"
+
+"@ephox/phoenix@^8.0.9", "@ephox/phoenix@^8.4.1":
+  version "8.4.1"
+  resolved "https://registry.yarnpkg.com/@ephox/phoenix/-/phoenix-8.4.1.tgz#6567d2ed0773ffc3e709bbdd7e2f73a022307d5d"
+  integrity sha512-BkwYwnT18yjRpC4rZWOKIn54WiKarKcs2jjJVo0DWuAsV+1XAc8OU/SJH1CqO78k5lCuGWITZtVJaTfhONN79g==
+  dependencies:
+    "@ephox/boss" "^6.1.1"
+    "@ephox/katamari" "^9.1.6"
+    "@ephox/polaris" "^6.3.1"
+    "@ephox/sugar" "^9.3.1"
+
+"@ephox/polaris@^6.3.1":
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/@ephox/polaris/-/polaris-6.3.1.tgz#6a41efd3d8488f1fdfda2140e447dd7ec06a42a5"
+  integrity sha512-repgjaGTuAl76rzAzDZQomzas3aJFwOELm1jGEZrLsxt1XAvocPMObi74DxEszCwuTt4NfgLKyVHVP3Wh0nyUw==
+  dependencies:
+    "@ephox/katamari" "^9.1.6"
+
+"@ephox/robin@^10.0.9":
+  version "10.4.1"
+  resolved "https://registry.yarnpkg.com/@ephox/robin/-/robin-10.4.1.tgz#940d463cb3c37f0d2850fdd25c4a56dea9e17d4d"
+  integrity sha512-zRMSDwwOJN6gjrBZBZLLvdHwQS7MtvqO7MO6pfW0dMCQkxMfddRBLIQVvkGIfUS8ZNKoYSeYA5rm6/wAbcx3lA==
+  dependencies:
+    "@ephox/boss" "^6.1.1"
+    "@ephox/katamari" "^9.1.6"
+    "@ephox/phoenix" "^8.4.1"
+    "@ephox/polaris" "^6.3.1"
+    "@ephox/sugar" "^9.3.1"
+
+"@ephox/sand@^6.0.10":
+  version "6.0.10"
+  resolved "https://registry.yarnpkg.com/@ephox/sand/-/sand-6.0.10.tgz#1bd3e03ce339ab282fa3ac03591badc13f7d69b1"
+  integrity sha512-q/2Xcjl1O5c9/HHxQiEKGZkGsC68WUjVP5ciDNKqrZd1s1BhA3VWbaubQxxBRt3SwKyBCukfS5gL53qkqTfbkg==
+  dependencies:
+    "@ephox/katamari" "^9.1.6"
+
+"@ephox/sugar@^9.3.1":
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/@ephox/sugar/-/sugar-9.3.1.tgz#082dbe885d41e657eff7ef6275d648f3dff88334"
+  integrity sha512-NQMqDN0zC+IZGuhBuz/7RxncfJsmTBhCHgaqkHOJ5d1E0CIL9afIizBYQ0JSHS3osAb9woGGtwPobjCx3/Srpw==
+  dependencies:
+    "@ephox/katamari" "^9.1.6"
+    "@ephox/sand" "^6.0.10"
 
 "@ephox/swag@^4.6.0":
   version "4.6.0"
@@ -4351,13 +4409,14 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
-es5-ext@^0.10.35, es5-ext@^0.10.46, es5-ext@^0.10.50, es5-ext@^0.10.53, es5-ext@^0.10.59, es5-ext@~0.10.14, es5-ext@~0.10.2, es5-ext@~0.10.46:
-  version "0.10.61"
-  resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.61.tgz#311de37949ef86b6b0dcea894d1ffedb909d3269"
-  integrity sha512-yFhIqQAzu2Ca2I4SE2Au3rxVfmohU9Y7wqGR+s7+H7krk26NXhIRAZDgqd6xqjCEFUomDEA3/Bo/7fKmIkW1kA==
+es5-ext@^0.10.35, es5-ext@^0.10.46, es5-ext@^0.10.50, es5-ext@^0.10.53, es5-ext@^0.10.59, es5-ext@^0.10.62, es5-ext@~0.10.14, es5-ext@~0.10.2, es5-ext@~0.10.46:
+  version "0.10.63"
+  resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.63.tgz#9c222a63b6a332ac80b1e373b426af723b895bd6"
+  integrity sha512-hUCZd2Byj/mNKjfP9jXrdVZ62B8KuA/VoK7X8nUh5qT+AxDmcbvZz041oDVZdbIN1qW6XY9VDNwzkvKnZvK2TQ==
   dependencies:
     es6-iterator "^2.0.3"
     es6-symbol "^3.1.3"
+    esniff "^2.0.1"
     next-tick "^1.1.0"
 
 es6-iterator@^2.0.1, es6-iterator@^2.0.3:
@@ -4574,6 +4633,16 @@ esm@^3.2.0:
   version "3.2.25"
   resolved "https://registry.yarnpkg.com/esm/-/esm-3.2.25.tgz#342c18c29d56157688ba5ce31f8431fbb795cc10"
   integrity sha512-U1suiZ2oDVWv4zPO56S0NcR5QriEahGtdN2OR6FiOG4WJvcjBVFB0qI4+eKoWFH483PKGuLuu6V8Z4T5g63UVA==
+
+esniff@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/esniff/-/esniff-2.0.1.tgz#a4d4b43a5c71c7ec51c51098c1d8a29081f9b308"
+  integrity sha512-kTUIGKQ/mDPFoJ0oVfcmyJn4iBDRptjNVIzwIFR7tqWXdVI9xfA2RMwY/gbSpJG3lkdWNEjLap/NqVHZiJsdfg==
+  dependencies:
+    d "^1.0.1"
+    es5-ext "^0.10.62"
+    event-emitter "^0.3.5"
+    type "^2.7.2"
 
 espree@^9.4.0:
   version "9.4.0"
@@ -11417,6 +11486,11 @@ type@^2.5.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/type/-/type-2.6.0.tgz#3ca6099af5981d36ca86b78442973694278a219f"
   integrity sha512-eiDBDOmkih5pMbo9OqsqPRGMljLodLcwd5XD5JbtNB0o89xZAwynY9EdCDsJU7LtcVCClu9DvM7/0Ep1hYX3EQ==
+
+type@^2.7.2:
+  version "2.7.2"
+  resolved "https://registry.yarnpkg.com/type/-/type-2.7.2.tgz#2376a15a3a28b1efa0f5350dcf72d24df6ef98d0"
+  integrity sha512-dzlvlNlt6AXU7EBSfpAscydQ7gXB+pPGsPnfJnZpiNJBDj7IaJzQlBZYGdEi4R9HmPdBv2XmWJ6YUtoTa7lmCw==
 
 typedarray-to-buffer@^3.1.5:
   version "3.1.5"
